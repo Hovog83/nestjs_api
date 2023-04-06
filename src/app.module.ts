@@ -8,6 +8,7 @@ import { AlbomModule } from './albom/albom.module';
 import { AlbomModel } from "./albom/albom.model";
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from "@nestjs/jwt";
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { JwtModule } from "@nestjs/jwt";
     UserModule,
     AlbomModule,
     AuthModule,
+    ProductModule,
   ],
   controllers: [],
   providers: [],

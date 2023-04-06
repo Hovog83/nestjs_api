@@ -7,7 +7,7 @@ export class AdminGuard implements CanActivate {
   canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
     try {
       const req = context.switchToHttp().getRequest();
-      const token = req.headers.authorization;
+      const token = req.headers.token;
       if (!token) {
         throw new HttpException("Unauthorized err", 500);
       }

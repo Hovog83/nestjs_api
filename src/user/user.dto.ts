@@ -1,8 +1,8 @@
 import { IsEmail, IsNotEmpty, IsString, Length, Max, Min } from "class-validator";
 
 export class UserDto {
-  // readonly last_name: string;
-  // readonly first_name: string;
+  readonly last_name: string;
+  readonly first_name: string;
   // readonly username: string;
   @IsString()
   @IsEmail()
