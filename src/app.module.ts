@@ -9,6 +9,7 @@ import { AlbomModel } from "./albom/albom.model";
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from "@nestjs/jwt";
 import { ProductModule } from './product/product.module';
+import { ProductModel } from "./product/product.model";
 
 @Module({
   imports: [
@@ -22,7 +23,7 @@ import { ProductModule } from './product/product.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, AlbomModel],
+      models: [User, AlbomModel, ProductModel],
       autoLoadModels: true,
     }),
     UserModule,

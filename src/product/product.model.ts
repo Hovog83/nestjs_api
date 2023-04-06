@@ -1,15 +1,16 @@
-import { DataType, Table, Column, Model, HasMany, BelongsTo } from "sequelize-typescript";
+import { DataType, Table, Column, Model, HasMany, BelongsTo, ForeignKey } from "sequelize-typescript";
 import { User } from "../user/user.model";
 
 interface product {
-  email: string,
-  password: string
-  first_name: string;
-  last_name: string;
+  name: string,
+  category: string
+  price: string;
+  company: string;
+  description: string;
 }
 
 @Table({ tableName: "product", updatedAt: false, createdAt: false })
-export class Product extends Model <Product, product> {
+export class ProductModel extends Model <ProductModel, product> {
   @Column({ type: DataType.INTEGER, primaryKey: true, autoIncrement: true })
   id: number;
 
@@ -31,10 +32,16 @@ export class Product extends Model <Product, product> {
   @Column({ type: DataType.STRING, allowNull: true })
   description: string;
 
+  @Column({ type: DataType.INTEGER, defaultValue: 0})
+  quantity: number;
+
+  @ForeignKey(() => User)
+  @Column({ type: DataType.INTEGER })
+  user_id: number;
 
 
   @BelongsTo(() => User)
-  alboms: User[];
+  author: User;
 
 
 

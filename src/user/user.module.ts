@@ -7,6 +7,7 @@ import { AuthModule } from "../auth/auth.module";
 import { AlbomModel } from "../albom/albom.model";
 import { JwtModule, JwtService } from "@nestjs/jwt";
 import { AuthGuard } from "../auth/auth-guard";
+import { ProductModel } from "../product/product.model";
 
 @Module({
   controllers: [UserController],
@@ -15,6 +16,7 @@ import { AuthGuard } from "../auth/auth-guard";
     SequelizeModule.forFeature([
       User,
       AlbomModel,
+      ProductModel
     ]),
     forwardRef(() => AuthModule),
   ],

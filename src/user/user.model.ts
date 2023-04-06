@@ -1,5 +1,6 @@
 import { DataType, Table, Column, Model, HasMany } from "sequelize-typescript";
 import { AlbomModel } from "../albom/albom.model";
+import { ProductModel } from "../product/product.model";
 
 interface user {
   email: string,
@@ -30,6 +31,10 @@ export class User extends Model <User, user> {
 
   @HasMany(() => AlbomModel)
   alboms: AlbomModel[];
+
+
+  @HasMany(() => ProductModel)
+  products: ProductModel[];
 
 
   @Column({ type: DataType.STRING, allowNull: true })
