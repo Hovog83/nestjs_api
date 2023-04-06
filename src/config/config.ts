@@ -24,3 +24,6 @@ export let config = {
     database: 'prod',
   },
 }
+
+
+

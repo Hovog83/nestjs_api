@@ -2,10 +2,9 @@ import { DataType, Table, Column, Model, HasMany, BelongsTo, ForeignKey } from "
 import { User } from "../user/user.model";
 
 interface product {
-  name: string,
-  category: string
+  name: string;
+  category: string;
   price: string;
-  company: string;
   description: string;
 }
 
@@ -17,14 +16,8 @@ export class ProductModel extends Model <ProductModel, product> {
   @Column({ type: DataType.STRING, allowNull: false, unique: true })
   name: string;
 
-  @Column({ type: DataType.BOOLEAN, defaultValue: false })
-  available: boolean;
-
   @Column({ type: DataType.STRING, allowNull: false })
   category: string;
-
-  @Column({ type: DataType.STRING, allowNull: false })
-  company: string;
 
   @Column({ type: DataType.INTEGER, allowNull: false })
   price: number;
