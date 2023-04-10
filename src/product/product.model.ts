@@ -33,6 +33,8 @@ export class ProductModel extends Model <ProductModel, product> {
   user_id: number;
 
 
+
+
   @BelongsTo(() => User)
   author: User;
 
