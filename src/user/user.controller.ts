@@ -3,6 +3,7 @@ import { UserService } from "./user.service";
 import { UserDto } from "./user.dto";
 import { AuthGuard } from "../auth/auth-guard";
 import { AdminGuard } from "../helpers/admin-guard";
+import { ContactDto } from "./contact.dto";
 
 @Controller('user')
 export class UserController {
@@ -31,5 +32,11 @@ export class UserController {
   @Get('/getAll')
   async getAllUsers(){
     return await this.userService.getAllUsers();
+  }
+
+  @UseGuards(AuthGuard)
+  @Post('/contact')
+  async contactUs(@Body() dto: ContactDto){
+    return await this.userService.contactUs(dto);
   }
 }

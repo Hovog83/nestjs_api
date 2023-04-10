@@ -10,6 +10,7 @@ import { AuthModule } from './auth/auth.module';
 import { JwtModule } from "@nestjs/jwt";
 import { ProductModule } from './product/product.module';
 import { ProductModel } from "./product/product.model";
+import { ContactModel } from "./user/contact.model";
 
 @Module({
   imports: [
@@ -23,7 +24,7 @@ import { ProductModel } from "./product/product.model";
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, AlbomModel, ProductModel],
+      models: [User, AlbomModel, ProductModel, ContactModel],
       autoLoadModels: true,
     }),
     UserModule,

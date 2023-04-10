@@ -1,13 +1,17 @@
 import { BadRequestException, HttpException, Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/sequelize";
 import { User } from "./user.model";
+// import { Contact } from "./contact.model";
 import { UserDto } from "./user.dto";
 import { GenerateNumber } from "../helpers/generateNumber";
 import { JwtService } from "@nestjs/jwt";
+import { ContactDto } from "./contact.dto";
+import { ContactModel } from "./contact.model";
 
 @Injectable()
 export class UserService {
-  constructor(@InjectModel(User) private Users: typeof User) {
+  constructor(@InjectModel(User) private Users: typeof User,
+              @InjectModel(ContactModel) private contactRepository: typeof ContactModel) {
   }
 
   // async createUser(req, dto: UserDto) {
@@ -81,6 +85,11 @@ export class UserService {
 
   async getAllUsers() {
     return await this.Users.findAll();
+  }
+  async contactUs(dto: ContactDto) {
+    return await this.contactRepository.create(
+      dto
+    );
   }
 
 }
