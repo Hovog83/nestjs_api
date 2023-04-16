@@ -4,6 +4,9 @@
 .env
 .production.env
 /src/config/config.ts
+/src/config/config.js
+/src/config
+./src/config
 /src/.env
 
 ./src/config/

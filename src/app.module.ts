@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from "@nestjs/sequelize";
@@ -7,7 +8,6 @@ import { User } from "./user/user.model";
 import { AlbomModule } from './albom/albom.module';
 import { AlbomModel } from "./albom/albom.model";
 import { AuthModule } from './auth/auth.module';
-import { JwtModule } from "@nestjs/jwt";
 import { ProductModule } from './product/product.module';
 import { ProductModel } from "./product/product.model";
 
@@ -15,6 +15,7 @@ import { ProductModel } from "./product/product.model";
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.env',
+      isGlobal: true
     }),
     SequelizeModule.forRoot({
       dialect: 'postgres',

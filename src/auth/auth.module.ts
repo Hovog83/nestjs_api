@@ -5,10 +5,10 @@ import { JwtModule, JwtService } from "@nestjs/jwt";
 import { UserModule } from "../user/user.module";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { User } from "../user/user.model";
-
+import { SendgridService } from "../helpers/mailer.service";
 @Module({
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [AuthService, SendgridService],
   imports: [
     SequelizeModule.forFeature([User]),
     JwtModule.register({
@@ -18,7 +18,6 @@ import { User } from "../user/user.model";
         expiresIn: '1h'
       }
     }),
-
     forwardRef(()=> UserModule)
   ]
 })
